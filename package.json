@@ -1,0 +1,29 @@
+{
+  "name": "linklab-website",
+  "version": "1.0.0",
+  "description": "Site oficial da LinkLab - Startup especializada em criação de sites e soluções digitais",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Build completed - static site ready for deployment'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "website",
+    "startup",
+    "digital-solutions",
+    "web-design",
+    "responsive",
+    "minimalist"
+  ],
+  "author": "LinkLab",
+  "license": "Private",
+  "devDependencies": {},
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "private"
+  },
+  "homepage": "https://linklab.com.br"
+}

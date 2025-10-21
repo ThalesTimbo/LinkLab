@@ -1,0 +1,4 @@
+<!-- Favicon placeholder - substitua por um favicon real -->
+<!-- Para criar um favicon, use uma das imagens de logo na pasta assets/images/ -->
+<!-- Recomendado: usar o "Link Lab logo.png" redimensionado para 32x32px -->
+<!-- Formatos suportados: .ico, .png, .svg -->
