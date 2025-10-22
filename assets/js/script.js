@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.classList.add('visible');
                 
                 // Anima elementos filhos com delays escalonados
-                const children = element.querySelectorAll('.feature-card, .service-card, .portfolio-item, .testimonial-card, .contact-item');
+                const children = element.querySelectorAll('.feature-card, .service-card, .portfolio-item, .photography-feature, .contact-item');
                 children.forEach((child, index) => {
                     setTimeout(() => {
                         child.classList.add('visible');
@@ -295,7 +295,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===========================================
     
     function addSkeletonLoading() {
-        const cards = document.querySelectorAll('.service-card, .feature-card, .portfolio-item');
+        const cards = document.querySelectorAll('.service-card, .feature-card, .portfolio-item, .photography-feature');
         cards.forEach(card => {
             card.classList.add('skeleton');
             
