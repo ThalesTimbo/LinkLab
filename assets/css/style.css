@@ -1277,6 +1277,11 @@ section {
 
 /* Mobile */
 @media (max-width: 480px) {
+    /* Ajuste para evitar que o header cubra a hero no mobile */
+    .hero {
+        padding-top: 100px; /* ajuste entre 80px e 120px se necessário */
+    }
+    
     .container {
         padding: 0 16px;
         width: 100%;
