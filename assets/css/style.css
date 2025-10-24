@@ -1021,6 +1021,38 @@ section {
     color: var(--gray-light);
 }
 
+.contact-phone-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.phone-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.phone-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-gold);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.phone-name:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px var(--primary-gold);
+    transform: translateY(-1px);
+}
+
+.phone-number {
+    font-size: 16px;
+    color: var(--gray-light);
+}
+
 /* ===========================================
    FOOTER
    =========================================== */
