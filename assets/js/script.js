@@ -328,37 +328,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
+        contactForm.addEventListener('submit', function() {
             const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
+            if (!submitBtn) return;
             
-            // Mostra estado de loading
+            // Mostra estado de loading, mas permite envio nativo ao FormSubmit
             submitBtn.textContent = 'Enviando...';
             submitBtn.classList.add('loading');
-            
-            // Simula envio (substitua por integração real)
-            setTimeout(() => {
-                // Sucesso
-                submitBtn.textContent = 'Mensagem enviada!';
-                submitBtn.style.background = '#4CAF50';
-                
-                // Reset do formulário
-                this.reset();
-                
-                // Reset do botão após 3 segundos
-                setTimeout(() => {
-                    submitBtn.textContent = originalText;
-                    submitBtn.style.background = '';
-                    submitBtn.classList.remove('loading');
-                }, 3000);
-                
-                // Mostra notificação de sucesso
-                showNotification('Mensagem enviada com sucesso!', 'success');
-                
-            }, 2000);
         });
     }
     
