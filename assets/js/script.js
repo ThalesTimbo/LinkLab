@@ -328,13 +328,44 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
     
     if (contactForm) {
-        contactForm.addEventListener('submit', function() {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
             const submitBtn = this.querySelector('button[type="submit"]');
-            if (!submitBtn) return;
+            if (submitBtn) {
+                submitBtn.textContent = 'Enviando...';
+                submitBtn.classList.add('loading');
+            }
             
-            // Mostra estado de loading, mas permite envio nativo ao FormSubmit
-            submitBtn.textContent = 'Enviando...';
-            submitBtn.classList.add('loading');
+            fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(async (response) => {
+                if (response.ok) {
+                    showNotification('Mensagem enviada com sucesso!', 'success');
+                    this.reset();
+                } else {
+                    let errorMessage = 'Erro ao enviar. Tente novamente.';
+                    try {
+                        const data = await response.json();
+                        if (data && data.message) errorMessage = data.message;
+                    } catch (_) {}
+                    showNotification(errorMessage, 'error');
+                }
+            })
+            .catch(() => {
+                showNotification('Falha de conexão. Verifique sua internet.', 'error');
+            })
+            .finally(() => {
+                if (submitBtn) {
+                    submitBtn.textContent = 'Solicite uma proposta';
+                    submitBtn.classList.remove('loading');
+                    submitBtn.style.background = '';
+                }
+            });
         });
     }
     
